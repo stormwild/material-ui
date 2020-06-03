@@ -1,24 +1,17 @@
-import React, { useContext } from 'react';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import ThemeContext from './components/ThemeContext';
-import ThemedButton from './components/ThemedButton';
-import AppBar from './components/AppBar';
+import React from 'react';
+import { ThemeProvider, Grid } from '@material-ui/core'
+import DataPage from './components/DataPage'
 
 const App = () => {
-  const color = useContext(ThemeContext)
 
   return (
-    <ThemeContext.Provider value={color}>
-      <div className='App'>
-        <AppBar />
-        <Typography>Hello Material</Typography>
-        <Button variant='contained' color='primary'>
-          Hello World
-        </Button>
-        <ThemedButton variant='contained' color='secondary'>Themed Buttony</ThemedButton>
-      </div>
-    </ThemeContext.Provider>
+    <ThemeProvider>
+      <Grid container justify="center">
+        <Grid item xs={12} md={10}>
+          <DataPage />
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 }
 
